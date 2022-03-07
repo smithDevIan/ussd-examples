@@ -46,7 +46,7 @@ if ($userResponse == "") {
     // This is a terminal request. Note how we start the response with END
     $response .= "END Thank you ";
 
-}else if ($userResponse!=null && $userResponse == 1){
+}else if ($userResponse!=null && $userResponse[1]){
         
     $response .= "CON Thank you, Reply with amount to contribute: \n";
     $response .= "1. 100 Ksh \n";
