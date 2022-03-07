@@ -18,13 +18,14 @@ if ($text == "") {
     // Business logic for first level response
     $response .= "CON Please specify the poling station to adopt: \n";
     
-    if($text == "1") { 
+} else if ($text == "1" && $response != ""){
+    
         // This is a second level response where the user selected 1 in the first instance
         $response .= "CON Thank you, Reply with amount to contribute: \n";
         $response .= "1. 100 Ksh \n";
         $response .= "2. Other amount \n";
     
-    }
+       
 } else if ($text == "2") {
     // Business logic for first level response
     // This is a terminal request. Note how we start the response with END
