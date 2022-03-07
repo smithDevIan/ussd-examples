@@ -25,17 +25,16 @@ if ($text == "") {
     $response .= "END Thank you ";
 
 }else if (!empty($incomming_text)||$text!=null){
-    
-    // This is a second level response where the user selected 1 in the first instance
+        
     $response .= "CON Thank you, Reply with amount to contribute: \n";
     $response .= "1. 100 Ksh \n";
     $response .= "2. Other amount \n";
 
-}
-if($text == "1" ) {
-    echo "thanks";
-}else{
-    $response .= "CON Enter amount you want to pay:  \n";
+}else if ((!empty($incomming_text)||$text!=null) && $text=="1"){
+    
+    
+    $response .= "END Thank you";
+
 }
 
 // Echo the response back to the API
