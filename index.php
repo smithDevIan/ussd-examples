@@ -31,7 +31,7 @@ $level=explode('*', $text);
         $response .= "2. Other amount \n";
         break;
 }*/
-if (isset($level[0])) {
+if ($text == "") {
     // This is the first request. Note how we start the response with CON
     $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
     $response .= "1.Yes \n";
