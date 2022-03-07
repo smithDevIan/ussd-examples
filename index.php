@@ -14,19 +14,17 @@ if ($text == "") {
 } else if ($text == "1") {
     // Business logic for first level response
     $response .= "CON Please specify the poling station to adopt: \n";
-    echo $response;
 
 } else if ($text == "2") {
     // Business logic for first level response
     // This is a terminal request. Note how we start the response with END
-    $response = "END Thank you ";
+    $response .= "END Thank you ";
 
-} else if($text == "1*1") { 
+} else if($text == "1") { 
     // This is a second level response where the user selected 1 in the first instance
-    $accountNumber  = "ACC1001";
-
-    // This is a terminal request. Note how we start the response with END
-    $response = "END Your account number is ".$accountNumber;
+    $response .= "CON Thank you, Reply with amount to contribute: \n";
+    $response .= "1. 100 Ksh \n";
+    $response .= "2. Other amount \n";
 
 }
 
