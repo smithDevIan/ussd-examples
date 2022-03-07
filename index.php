@@ -1,10 +1,10 @@
 <?php
 
 // Read the variables sent via POST from our API
-$sessionId   = $_POST["sessionId"];
-$serviceCode = $_POST["serviceCode"];
-$phoneNumber = ltrim($_POST["phoneNumber"],'+');
-$text        = $_POST["text"];
+//$sessionId   = $_POST["sessionId"];
+//$serviceCode = $_POST["serviceCode"];
+$phoneNumber = ltrim($_GET["phoneNumber"],'+');
+$text        = $_GET["text"];
 
 $incomming= explode('*', $text );
 $incomming_text = $incomming[1];
