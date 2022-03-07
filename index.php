@@ -31,12 +31,11 @@ if ($text == "") {
     $response .= "1. 100 Ksh \n";
     $response .= "2. Other amount \n";
 
-    if($text == "1" ) {
-        echo "thanks";
-    }else{
-        $response .= "CON Enter amount you want to pay:  \n";
-    }
-
+}
+if($text == "1" ) {
+    echo "thanks";
+}else{
+    $response .= "CON Enter amount you want to pay:  \n";
 }
 
 // Echo the response back to the API
