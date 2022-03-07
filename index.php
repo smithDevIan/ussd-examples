@@ -19,19 +19,6 @@ switch ($userResponse) {
     
     case '1':
         $response .= "CON Please specify the poling station to adopt: \n";
-        if($userResponse !=''){
-            $userResponse = '';
-            switch($userResponse){
-                case '':
-                    $response .= "CON Thank you, Reply with amount to contribute: \n";
-                    $response .= "1. 100 Ksh \n";
-                    $response .= "2. Other amount \n";
-                    break;
-                default:
-                    # code...
-                    break;
-            }
-        }
         break;
 
     case '2':
@@ -41,6 +28,12 @@ switch ($userResponse) {
     default:
         # code...
         break;
+}
+
+if ($userResponse != "") {
+    $response .= "CON Thank you, Reply with amount to contribute: \n";
+    $response .= "1. 100 Ksh \n";
+    $response .= "2. Other amount \n";
 }
 /*if ($text == "") {
     // This is the first request. Note how we start the response with CON
