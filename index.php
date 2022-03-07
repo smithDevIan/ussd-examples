@@ -1,17 +1,11 @@
 <?php
 
-include "utils.php";
-include "members.php";
-
 // Read the variables sent via POST from our API
 $sessionId   = $_POST["sessionId"];
 $serviceCode = $_POST["serviceCode"];
 $phoneNumber = $_POST["phoneNumber"];
 $text        = $_POST["text"];
 
-$member  = new Member($phone);
-$db = new DBConnector();
-$pdo = $db->connectToDB();
 
 
 if ($text == "") {
