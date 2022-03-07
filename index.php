@@ -10,7 +10,7 @@ $textArray=explode('*', $text);
 $userResponse=trim(end($textArray));
 
 
-/*switch ($userResponse) {
+switch ($userResponse) {
     case '':
         $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
         $response .= "1.Yes \n";
@@ -28,8 +28,8 @@ $userResponse=trim(end($textArray));
     default:
         # code...
         break;
-}*/
-if ($userResponse == "") {
+}
+/*if ($userResponse == "") {
     // This is the first request. Note how we start the response with CON
     $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
     $response .= "1.Yes \n";
@@ -54,7 +54,7 @@ if ($userResponse == "") {
         
     $response .= "CON Thank you, for paying. \n";
 
-}
+}*/
 
 // Echo the response back to the API
 header('Content-type: text/plain');
