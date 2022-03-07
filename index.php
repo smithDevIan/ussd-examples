@@ -6,10 +6,22 @@ $serviceCode = $_POST["serviceCode"];
 $phoneNumber = ltrim($_POST["phoneNumber"],'+');
 $text        = $_POST["text"];
 
-$incomming= explode('*', $text );
-$incomming_text = $incomming[1];
+$textArray=explode('*', $text);
+$userResponse=trim(end($textArray));
 
-if ($text == "") {
+
+switch ($userResponse) {
+    case '':
+        $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
+        $response .= "1.Yes \n";
+        $response .= "2. No";
+        break;
+    
+    default:
+        # code...
+        break;
+}
+/*if ($text == "") {
     // This is the first request. Note how we start the response with CON
     $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
     $response .= "1.Yes \n";
@@ -24,16 +36,18 @@ if ($text == "") {
     // This is a terminal request. Note how we start the response with END
     $response .= "END Thank you ";
 
-}else if (empty($incomming_text)){
+}else if (!empty($incomming_text) && $text!=null){
         
-    $response .= "CON Please enter a : \n";
+    $response .= "CON Thank you, Reply with amount to contribute: \n";
+    $response .= "1. 100 Ksh \n";
+    $response .= "2. Other amount \n";
 
-}else if ($text=="1*1"){
+}else if ((!empty($incomming_text)||$text!=null) && $text=="1"){
     
     
     $response .= "END Thank you";
 
-}
+}*/
 
 // Echo the response back to the API
 header('Content-type: text/plain');
