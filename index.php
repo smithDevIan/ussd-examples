@@ -31,6 +31,11 @@ switch ($userResponse) {
         $response .= "2. Other amount \n";
         break;
 }
+
+$level = count($textArray);
+if ($level == 1) {
+    echo "End bye";
+}
 /*if ($text == "") {
     // This is the first request. Note how we start the response with CON
     $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
