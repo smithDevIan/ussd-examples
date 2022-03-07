@@ -55,7 +55,7 @@ if ($text == "") {
     
     $response .= "END Thank you";
 
-}*/
+}
 
 // Echo the response back to the API
 header('Content-type: text/plain');
