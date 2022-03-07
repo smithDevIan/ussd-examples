@@ -6,7 +6,8 @@ $serviceCode = $_POST["serviceCode"];
 $phoneNumber = $_POST["phoneNumber"];
 $text        = $_POST["text"];
 
-
+$incomming= explode('*', $text );
+$incomming_text = $incomming[1];
 
 if ($text == "") {
     // This is the first request. Note how we start the response with CON
@@ -18,18 +19,17 @@ if ($text == "") {
     // Business logic for first level response
     $response .= "CON Please specify the poling station to adopt: \n";
     
-} else if ($text == "1" && $text != ""){
-    
-        // This is a second level response where the user selected 1 in the first instance
-        $response .= "CON Thank you, Reply with amount to contribute: \n";
-        $response .= "1. 100 Ksh \n";
-        $response .= "2. Other amount \n";
-    
-       
 } else if ($text == "2") {
     // Business logic for first level response
     // This is a terminal request. Note how we start the response with END
     $response .= "END Thank you ";
+
+}else if (!empty($incomming_text)||$text!=null){
+    
+    // This is a second level response where the user selected 1 in the first instance
+    $response .= "CON Thank you, Reply with amount to contribute: \n";
+    $response .= "1. 100 Ksh \n";
+    $response .= "2. Other amount \n";
 
 }
 
