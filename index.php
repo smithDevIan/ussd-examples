@@ -37,7 +37,7 @@ if ($text == "") {
     $response .= "1.Yes \n";
     $response .= "2. No";
 
-} else if (isset($level[0]) && $level[0] == 1) {
+} else if (isset($level[0]) && $level[0] == 1 && !isset($level[1])) {
     // Business logic for first level response
     $response .= "CON Please specify the poling station to adopt: \n";
     
