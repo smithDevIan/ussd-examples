@@ -12,13 +12,13 @@ $userResponse=trim(end($textArray));
 
 switch ($userResponse) {
     case '':
-        $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
+        $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n";
         $response .= "1.Yes \n";
         $response .= "2. No";
         break;
     
     case '1':
-        $response .= "CON Please specify the poling station to adopt: \n";
+        $response .= "CON Please specify the poling station to adopt. \n";
         break;
 
     case '2':
@@ -28,6 +28,11 @@ switch ($userResponse) {
     default:
         # code...
         break;
+}
+if ($userResponse=="1*1") {
+    $response .= "CON Thank you, Reply with amount to contribute: \n";
+    $response .= "1. 100 Ksh \n";
+    $response .= "2. Other amount \n";
 }
 /*if ($text == "") {
     // This is the first request. Note how we start the response with CON
