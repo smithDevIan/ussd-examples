@@ -33,7 +33,7 @@ $userResponse=trim(end($textArray));
 }*/
 if ($userResponse == "") {
     // This is the first request. Note how we start the response with CON
-    $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
+    $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n";
     $response .= "1.Yes \n";
     $response .= "2. No";
 
@@ -41,7 +41,7 @@ if ($userResponse == "") {
     // Business logic for first level response
     $response .= "CON Please specify the poling station to adopt: \n";
     
-} else if ($userResponse == "2") {
+} else if ($userResponse[0] && $userResponse == "2") {
     // Business logic for first level response
     // This is a terminal request. Note how we start the response with END
     $response .= "END Thank you ";
@@ -51,11 +51,6 @@ if ($userResponse == "") {
     $response .= "CON Thank you, Reply with amount to contribute: \n";
     $response .= "1. 100 Ksh \n";
     $response .= "2. Other amount \n";
-
-}else if ((!empty($incomming_text)||$userResponse!=null) && $text=="1"){
-    
-    
-    $response .= "END Thank you";
 
 }
 
