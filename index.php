@@ -13,7 +13,7 @@ if ($text == "") {
 
 } else if ($text == "1") {
     // Business logic for first level response
-    $response = echo "CON Please specify the poling station to adopt: \n";
+    echo "CON Please specify the poling station to adopt: \n";
 
 } else if ($text == "2") {
     // Business logic for first level response
