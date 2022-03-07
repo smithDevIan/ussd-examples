@@ -20,9 +20,9 @@ if ($text == "") {
     // This is a terminal request. Note how we start the response with END
     $response = "END Thank you ";
 
-} else if($text == "1*1") { 
+} else if($text == "1" && $text !="") { 
     // This is a second level response where the user selected 1 in the first instance
-    $accountNumber  = "ACC1001";
+    echo "thank you \n";
 
     // This is a terminal request. Note how we start the response with END
     $response = "END Your account number is ".$accountNumber;
