@@ -3,7 +3,7 @@
 // Read the variables sent via POST from our API
 $sessionId   = $_POST["sessionId"];
 $serviceCode = $_POST["serviceCode"];
-$phoneNumber = $_POST["phoneNumber"];
+$phoneNumber = ltrim($_POST["phoneNumber"],'+');
 $text        = $_POST["text"];
 
 $incomming= explode('*', $text );
@@ -30,7 +30,7 @@ if ($text == "") {
     $response .= "1. 100 Ksh \n";
     $response .= "2. Other amount \n";
 
-}else if ((!empty($incomming_text)||$text!=null) && $text=="1"){
+}else if ((!empty($incomming_text)||$text!=null) || $text=="1"){
     
     
     $response .= "END Thank you";
