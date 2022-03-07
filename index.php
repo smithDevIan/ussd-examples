@@ -6,11 +6,11 @@ $serviceCode = $_POST["serviceCode"];
 $phoneNumber = ltrim($_POST["phoneNumber"],'+');
 $text        = $_POST["text"];
 
-$textArray=explode('*', $text);
-$userResponse=trim(end($textArray));
+$level=explode('*', $text);
+//$userResponse=trim(end($textArray));
 
 
-switch ($userResponse) {
+/*switch ($userResponse) {
     case '':
         $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n";
         $response .= "1.Yes \n";
@@ -30,13 +30,8 @@ switch ($userResponse) {
         $response .= "1. 100 Ksh \n";
         $response .= "2. Other amount \n";
         break;
-}
-
-$level = count($textArray);
-if ($level == 1) {
-    echo "End bye";
-}
-/*if ($text == "") {
+}*/
+if (isset($level[0])) {
     // This is the first request. Note how we start the response with CON
     $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
     $response .= "1.Yes \n";
@@ -62,7 +57,7 @@ if ($level == 1) {
     
     $response .= "END Thank you";
 
-}*/
+}
 
 // Echo the response back to the API
 header('Content-type: text/plain');
