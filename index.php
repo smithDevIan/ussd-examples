@@ -19,8 +19,10 @@ switch ($userResponse) {
     
     case '1':
         $response .= "CON Please specify the poling station to adopt: \n";
-        $response .= "1.Yes \n";
-        $response .= "2. No";
+        break;
+
+    case '2':
+        $response .= "END Thank you. \n";
         break;
     
     default:
