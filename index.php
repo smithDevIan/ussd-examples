@@ -18,7 +18,7 @@ if ($text == "") {
     // Business logic for first level response
     $response .= "CON Please specify the poling station to adopt: \n";
     
-} else if ($text == "1" && $response != ""){
+} else if ($text == "1" || $text != ""){
     
         // This is a second level response where the user selected 1 in the first instance
         $response .= "CON Thank you, Reply with amount to contribute: \n";
