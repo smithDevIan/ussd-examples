@@ -24,14 +24,11 @@ switch ($userResponse) {
     case '2':
         $response .= "END Thank you. \n";
         break;
-    case '1*1':
+    
+    default:
         $response .= "CON Thank you, Reply with amount to contribute: \n";
         $response .= "1. 100 Ksh \n";
         $response .= "2. Other amount \n";
-        break;
-    
-    default:
-        # code...
         break;
 }
 /*if ($text == "") {
