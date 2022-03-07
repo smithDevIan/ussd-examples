@@ -24,7 +24,7 @@ if ($text == "") {
     // This is a terminal request. Note how we start the response with END
     $response .= "END Thank you ";
 
-}else if (empty($incomming_text)){
+}else if (empty($text)){
         
     $response .= "CON Please enter amount: \n";
 
