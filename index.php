@@ -24,13 +24,13 @@ if ($text == "") {
     // This is a terminal request. Note how we start the response with END
     $response .= "END Thank you ";
 
-}else if ($incomming_text != "" && $text!=null){
+}else if (!empty($incomming_text)){
         
     $response .= "CON Thank you, Reply with amount to contribute: \n";
     $response .= "1. 100 Ksh \n";
     $response .= "2. Other amount \n";
 
-}else if ((!empty($incomming_text)||$text!=null) || $text=="1"){
+}else if ($text=="1*1"){
     
     
     $response .= "END Thank you";
