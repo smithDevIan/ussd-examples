@@ -26,9 +26,7 @@ if ($text == "") {
 
 }else if (empty($incomming_text)){
         
-    $response .= "CON Thank you, Reply with amount to contribute: \n";
-    $response .= "1. 100 Ksh \n";
-    $response .= "2. Other amount \n";
+    $response .= "CON Please enter amount: \n";
 
 }else if ($text=="1*1"){
     
