@@ -15,9 +15,6 @@ switch ($userResponse) {
         $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:.\n";
         $response .= "1.Yes \n";
         $response .= "2. No";
-
-        header('Content-type: text/plain');
- 		echo $response;
         break;
     
     case '1':
