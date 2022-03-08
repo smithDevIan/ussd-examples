@@ -15,6 +15,7 @@
     $user = $stmt->get_result()->fetch_assoc();
 
     
+    
 	//3. Explode the text to get the value of the latest interaction - think 1*1
     $inputs = [];
     if($text != ''){

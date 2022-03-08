@@ -13,12 +13,10 @@ $dbport = 3306;
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
 
     // Check connection
-    if ($conn->connect_error) {
-      echo "Error connecting";
-      die("Connection failed: " . $conn->connect_error);
-    }else{
-      echo "connected successfully";
+    if ($conn === false) {
+      die("ERROR: Could not connect. " . $conn->connect_error);
     }
+      echo "connected successfully". $conn->host_info;
     
 
 
