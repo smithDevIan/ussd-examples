@@ -10,14 +10,16 @@ $dbport = 3306;
 
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $database, $dbport);
+    $db = new mysqli($servername, $username, $password, $database, $dbport);
 
     // Check connection
-    if ($conn === false) {
-      die("ERROR: Could not connect. " . $conn->connect_error);
-    }
-      echo "connected successfully". $conn->host_info;
-    
+    if ($db->connect_error) {
+        header('Content-type: text/plain');
+        //log error to file/db $e-getMessage()
+        die("END An error was encountered. Please try again later");
+    } 
+    //echo "Connected successfully (".$db->host_info.")";
+
 
 
 

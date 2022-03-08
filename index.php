@@ -1,5 +1,5 @@
 <?php
-    include("dbconnect.php");
+    require_once('dbconnect.php');
 
 	//2. receive the POST from AT
 	$sessionId     =$_POST['sessionId'];
@@ -9,18 +9,22 @@
 
 
     //Check if user is in the database
-    $stmt = $conn -> prepare("SELECT * FROM `sessions_table` WHERE sessionId= ? and phoneNumber=?");
-    $stmt->bind_param("ss", $sessionId, $phoneNumber);
-    $stmt->execute();
-    $user = $stmt->get_result()->fetch_assoc();
+    $sql = "SELECT * FROM `sessions_table` WHERE sessionId= ? and phoneNumber=?";
+    if ($conn -> prepare($sql)) {
+        $stmt->bind_param("ss", $sessionId, $phoneNumber);
+
+        $sessionId = "vhbj2231";
+        $phoneNumber = "+254741931015";
+        $stmt->execute();
+
+        echo "Records inserted successfully.";
+    }
+    else{
+        echo "not created";
+    }
+    
 
     
-    
-	//3. Explode the text to get the value of the latest interaction - think 1*1
-    $inputs = [];
-    if($text != ''){
-        $inputs = explode('*', $text);
-    }
     
     $text = '';
     switch(count($inputs)){
