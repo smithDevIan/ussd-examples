@@ -9,7 +9,7 @@
 
 
     //Check if user is in the database
-    $stmt = $db -> prepare("SELECT * FROM `sessions_table` WHERE sessionId= ? and phoneNumber=?");
+    $stmt = $conn -> prepare("SELECT * FROM `sessions_table` WHERE sessionId= ? and phoneNumber=?");
     $stmt->bind_param("ii", $sessionId, $phoneNumber);
     $stmt->execute();
     $user = $stmt->get_result()->fetch_assoc();
