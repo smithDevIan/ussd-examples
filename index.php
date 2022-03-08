@@ -11,8 +11,8 @@
 	$inputs = explode('*', $text);
 	
 	//4. Set the default level of the user
-    //$text = '';
-    switch(count($inputs)){
+    $text = '';
+    switch($inputs){
         case 0: 
             $text = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n1.Yes \n2. No";
             break;
