@@ -9,12 +9,10 @@
 
 	//3. Explode the text to get the value of the latest interaction - think 1*1
 	$inputs = explode('*', $text);
-
-    echo $inputs[0];
 	
 	//4. Set the default level of the user
-    $text = '';
-    switch($inputs){
+    //$text = '';
+    switch(count($inputs)){
         case 0: 
             $text = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n1.Yes \n2. No";
             break;
