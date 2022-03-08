@@ -9,19 +9,17 @@
 
 
     //Check if user is in the database
-    $data = "SELECT * FROM sessions_table WHERE sessionId= ? and phoneNumber=?";
-    $dataFromDb = $db->query($data);
-    $userAvailable = $dataFromDb->fetch_assoc();
+    $stmt = $db -> prepare("SELECT * FROM `sessions_table` WHERE sessionId= ? and phoneNumber=?");
+    $stmt->bind_param("ii", $sessionId, $phoneNumber);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();
 
-    if($userAvailable == "") {
-        $inputs = [];
-    }else{
-        if($text != ''){
-            $inputs = explode('*', $text);
-        }
-    }
-	//3. Explode the text to get the value of the latest interaction - think 1*1
     
+	//3. Explode the text to get the value of the latest interaction - think 1*1
+    $inputs = [];
+    if($text != ''){
+        $inputs = explode('*', $text);
+    }
     
     $text = '';
     switch(count($inputs)){
