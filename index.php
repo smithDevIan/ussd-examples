@@ -1,59 +1,45 @@
 <?php
 
-// Read the variables sent via POST from our API
-$sessionId   = $_POST["sessionId"];
-$serviceCode = $_POST["serviceCode"];
-$phoneNumber = ltrim($_POST["phoneNumber"],'+');
-$text        = $_POST["text"];
 
-$textArray=explode('*', $text);
-$userResponse=trim(end($textArray));
+	//2. receive the POST from AT
+	$sessionId     =$_POST['sessionId'];
+	$serviceCode   =$_POST['serviceCode'];
+	$phoneNumber   =$_POST['phoneNumber'];
+	$text          =$_POST['text'];
 
-
-/*switch ($userResponse) {
-    case '':
-        $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n";
-        $response .= "1.Yes \n";
-        $response .= "2. No";
-        break;
-    
-    case '1':
-        $response .= "CON Please specify the poling station to adopt. \n";
-        break;
-
-    case '2':
-        $response .= "END Thank you. \n";
-        break;
-    
-    default:
-        $response .= "CON Thank you, Reply with amount to contribute: \n";
-        $response .= "1. 100 Ksh \n";
-        $response .= "2. Other amount \n";
-        break;
-}*/
-if ($userResponse == "") {
-    // This is the first request. Note how we start the response with CON
-    $response  = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n";
-    $response .= "1.Yes \n";
-    $response .= "2. No";
-
-} else if ($userResponse == "1") {
-    // Business logic for first level response
-    $response .= "CON Please specify the poling station to adopt: \n";
-    
-} else if ($userResponse[0] && $userResponse == "2") {
-    // Business logic for first level response
-    // This is a terminal request. Note how we start the response with END
-    $response .= "END Thank you ";
-
-}else if ($userResponse!=null && $userResponse[1]){
-        
-    $response .= "CON Thank you, Reply with amount to contribute: \n";
-    $response .= "1. 100 Ksh \n";
-    $response .= "2. Other amount \n";
-
-}
-
-// Echo the response back to the API
-header('Content-type: text/plain');
-echo $response;
+	//3. Explode the text to get the value of the latest interaction - think 1*1
+	$inputs = explode('*', $text);
+	
+	//4. Set the default level of the user
+    $text = '';
+    switch(inputs.count){
+        case 0: 
+            $text = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n1.Yes \n2. No";
+            break;
+         case 1: 
+            $input = $inputs[inputs.count - 1];
+            if($input == "1"){
+                $text = "CON Please specify the poling station to adopt: \n";
+            }else{
+                $text="END Thank you";
+            }
+            break;
+        case 2: 
+            $text = "CON Thank you, Reply with amount to contribute:\n1. KES 100 2. \nOther amount";
+            break;
+        case 3: 
+            $input = $inputs[inputs.count - 1];
+            if(input == 1){
+                $text = "END STK PUSH initiated. Please wait fpr the M-PESA pop up then enter your M-PESA PIN";
+            }else{
+                $text = "CON Please enter amount (KES)";
+            }
+            break; 
+        case 4: 
+            $text = "END STK PUSH initiated. Please wait fpr the M-PESA pop up then enter your M-PESA PIN";  
+            break;            
+    }
+    // Echo the response back to the API
+    header('Content-type: text/plain');
+    echo $text;
+?>
