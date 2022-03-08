@@ -29,7 +29,7 @@
             }
             break;
         case 2: 
-            $text = "CON Thank you, Reply with amount to contribute:\n1. KES 100 2. \nOther amount";
+            $text = "CON Thank you, Reply with amount to contribute:\n1. KES 100\n 2.Other amount";
             break;
         case 3: 
             $input = $inputs[count($inputs)- 1];
