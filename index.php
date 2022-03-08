@@ -1,5 +1,5 @@
 <?php
-
+    include("dbconnect.php");
 
 	//2. receive the POST from AT
 	$sessionId     =$_POST['sessionId'];
@@ -7,14 +7,22 @@
 	$phoneNumber   =$_POST['phoneNumber'];
 	$text          =$_POST['text'];
 
-	//3. Explode the text to get the value of the latest interaction - think 1*1
-	//3. Explode the text to get the value of the latest interaction - think 1*1
-	//3. Explode the text to get the value of the latest interaction - think 1*1
-    $inputs = [];
-    if($text != ''){
-	    $inputs = explode('*', $text);
+
+    //Check if user is in the database
+    $data = "SELECT * FROM sessions_table WHERE sessionId= ? and phoneNumber=?";
+    $dataFromDb = $db->query($data);
+    $userAvailable = $dataFromDb->fetch_assoc();
+
+    if($userAvailable == "") {
+        $inputs = [];
+    }else{
+        if($text != ''){
+            $inputs = explode('*', $text);
+        }
     }
-	//4. Set the default level of the user
+	//3. Explode the text to get the value of the latest interaction - think 1*1
+    
+    
     $text = '';
     switch(count($inputs)){
         case 0: 
