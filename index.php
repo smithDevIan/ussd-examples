@@ -9,7 +9,8 @@
 
 	//3. Explode the text to get the value of the latest interaction - think 1*1
 	$inputs = explode('*', $text);
-    $inputs = $inputs[0];
+
+    echo $inputs[0];
 	
 	//4. Set the default level of the user
     $text = '';
