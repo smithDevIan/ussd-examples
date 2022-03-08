@@ -1,5 +1,5 @@
 <?php
-    //include("dbconnect.php");
+    include("dbconnect.php");
 
 	//2. receive the POST from AT
 	$sessionId     =$_POST['sessionId'];
@@ -9,10 +9,10 @@
 
 
     //Check if user is in the database
-    /*$stmt = $conn -> prepare("SELECT * FROM `sessions_table` WHERE sessionId= ? and phoneNumber=?");
-    $stmt->bind_param("ii", $sessionId, $phoneNumber);
+    $stmt = $conn -> prepare("SELECT * FROM `sessions_table` WHERE sessionId= ? and phoneNumber=?");
+    $stmt->bind_param("ss", $sessionId, $phoneNumber);
     $stmt->execute();
-    $user = $stmt->get_result()->fetch_assoc();*/
+    $user = $stmt->get_result()->fetch_assoc();
 
     
 	//3. Explode the text to get the value of the latest interaction - think 1*1
