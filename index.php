@@ -1,5 +1,5 @@
 <?php
-    include("dbconnect.php");
+    //include("dbconnect.php");
 
 	//2. receive the POST from AT
 	$sessionId     =$_POST['sessionId'];
