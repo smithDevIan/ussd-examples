@@ -8,8 +8,12 @@
 	$text          =$_POST['text'];
 
 	//3. Explode the text to get the value of the latest interaction - think 1*1
-	$inputs = explode('*', $text);
-	
+	//3. Explode the text to get the value of the latest interaction - think 1*1
+	//3. Explode the text to get the value of the latest interaction - think 1*1
+    $inputs = [];
+    if($text != ''){
+	    $inputs = explode('*', $text);
+    }
 	//4. Set the default level of the user
     $text = '';
     switch(count($inputs)){
