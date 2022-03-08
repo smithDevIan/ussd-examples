@@ -11,35 +11,35 @@
 	$inputs = explode('*', $text);
 	
 	//4. Set the default level of the user
-    //$text = '';
-    switch($text){
+    $text = '';
+    switch(count($inputs)){
         case 0: 
-            $response = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n1.Yes \n2. No";
+            $text = "CON We invite you to fundraise by adopting a poll station.\nReply with:\n1.Yes \n2. No";
             break;
          case 1: 
             $input = $inputs[inputs.count - 1];
             if($input == "1"){
-                $response = "CON Please specify the poling station to adopt: \n";
+                $text = "CON Please specify the poling station to adopt: \n";
             }else{
-                $response="END Thank you";
+                $text="END Thank you";
             }
             break;
         case 2: 
-            $response = "CON Thank you, Reply with amount to contribute:\n1. KES 100 2. \nOther amount";
+            $text = "CON Thank you, Reply with amount to contribute:\n1. KES 100 2. \nOther amount";
             break;
         case 3: 
             $input = $inputs[inputs.count - 1];
             if(input == 1){
-                $response = "END STK PUSH initiated. Please wait fpr the M-PESA pop up then enter your M-PESA PIN";
+                $text = "END STK PUSH initiated. Please wait fpr the M-PESA pop up then enter your M-PESA PIN";
             }else{
-                $response = "CON Please enter amount (KES)";
+                $text = "CON Please enter amount (KES)";
             }
             break; 
         case 4: 
-            $response = "END STK PUSH initiated. Please wait fpr the M-PESA pop up then enter your M-PESA PIN";  
+            $text = "END STK PUSH initiated. Please wait fpr the M-PESA pop up then enter your M-PESA PIN";  
             break;            
     }
     // Echo the response back to the API
     header('Content-type: text/plain');
-    echo $response;
+    echo $text;
 ?>
